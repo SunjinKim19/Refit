@@ -5,8 +5,10 @@ import json
 # 모델 로드
 model = SentenceTransformer('jhgan/ko-sbert-sts')
 
+category = "payment"
+
 # 예시 데이터셋 로드
-with open("C:\\Users\\효원\\Desktop\\my_project\\backend\\data\\payment_cleaned_with_intent.json", "r", encoding="utf-8") as f:
+with open(f"C:\\Users\\효원\\Desktop\\my_project\\backend\\data\\{category}_cleaned_with_intent.json", "r", encoding="utf-8") as f:
     cleaned_data = json.load(f)
 
 # Document 리스트
@@ -40,7 +42,7 @@ for d in docs:
     })
 
 # JSON 저장
-with open('C:\\Users\\효원\\Desktop\\my_project\\backend\\embeddings\\payment_docs_with_intent.json', 'w', encoding='utf-8') as f:
+with open('C:\\Users\\효원\\Desktop\\my_project\\backend\\embeddings\\{category}_docs_with_intent.json', 'w', encoding='utf-8') as f:
     json.dump(serializable_docs, f, ensure_ascii=False, indent=4)
 
 print("Document 형식으로 임베딩 포함 JSON 저장 완료!")
