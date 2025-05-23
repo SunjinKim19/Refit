@@ -36,7 +36,7 @@ for item in data:
 embeddings = np.array(embeddings)
 
 # 4. FAISS 인덱스 생성 (from_embeddings 사용)
-save_path = "backend/embeddings/payment_faiss_index"
+save_path = f"backend/embeddings/{category}_faiss_index"
 
 if os.path.exists(save_path):
     print("FAISS 인덱스가 존재합니다. 불러오는 중...")
